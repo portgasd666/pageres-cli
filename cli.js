@@ -161,12 +161,11 @@ function parse(args, globalOptions) {
 			options.hide = arrify(options.hide);
 		}
 
-		// var basicUrlRegex = /\.|localhost/;
-		var urlRegex = /(http(s)?:\/\/)([^.]+)|localhost|\./;
+		var urlRegex = /https?:\/\/|localhost|\./;
 		var sizeRegex = /^\d{3,4}x\d{3,4}$/i;
 
 		var url = arrayUniq(arg.filter(function (a) {
-			return urlRegex.test(a); // || basicUrlRegex.test(a);
+			return urlRegex.test(a);
 		}));
 
 		var sizes = arrayUniq(arg.filter(function (a) {
